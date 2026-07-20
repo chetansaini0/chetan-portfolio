@@ -1,102 +1,168 @@
-import Image from "next/image";
+import { profile, projects, services } from "@/lib/content";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="relative min-h-screen overflow-x-hidden">
+      <div className="pointer-events-none absolute inset-0 grid-fade opacity-40" aria-hidden />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+      <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+        <a href="#top" className="display text-lg tracking-tight text-fog">
+          Chetan Saini
+        </a>
+        <nav className="flex items-center gap-6 text-sm text-muted">
+          <a href="#work" className="transition hover:text-fog">
+            Work
+          </a>
+          <a href="#services" className="transition hover:text-fog">
+            Services
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`mailto:${profile.email}`}
+            className="rounded-full border border-[var(--line)] bg-white/5 px-4 py-2 text-fog transition hover:border-copper hover:text-copper"
           >
-            Read our docs
+            Hire me
           </a>
-        </div>
+        </nav>
+      </header>
+
+      <main id="top" className="relative z-10">
+        <section className="mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-center px-6 pb-20 pt-10">
+          <p className="rise text-sm uppercase tracking-[0.28em] text-copper">
+            {profile.role}
+          </p>
+          <h1 className="display rise rise-delay-1 mt-5 max-w-4xl text-5xl leading-[1.05] text-fog sm:text-7xl">
+            Chetan Saini
+          </h1>
+          <p className="rise rise-delay-2 mt-6 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">
+            {profile.oneLiner}
+          </p>
+          <div className="rise rise-delay-3 mt-10 flex flex-wrap gap-4">
+            <a
+              href="#work"
+              className="rounded-full bg-copper px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-110"
+            >
+              View selected work
+            </a>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-[var(--line)] px-6 py-3 text-sm text-fog transition hover:border-fog/40"
+            >
+              GitHub
+            </a>
+          </div>
+          <p className="mt-8 text-sm text-muted">{profile.location}</p>
+        </section>
+
+        <section id="work" className="mx-auto max-w-6xl px-6 py-20">
+          <div className="mb-10 flex items-end justify-between gap-6">
+            <div>
+              <p className="text-sm uppercase tracking-[0.24em] text-copper">Selected work</p>
+              <h2 className="display mt-3 text-3xl text-fog sm:text-4xl">
+                Real ships. Real URLs.
+              </h2>
+            </div>
+            <p className="hidden max-w-xs text-right text-sm text-muted sm:block">
+              No fabricated clients — only production demos and client deliveries you can open.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {projects.map((project, index) => (
+              <article
+                key={project.slug}
+                className="group rounded-3xl border border-[var(--line)] bg-ink-2/70 p-6 backdrop-blur-sm transition hover:border-copper/40 sm:p-8"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-4">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.18em] text-muted">
+                      <span className="text-copper">{String(index + 1).padStart(2, "0")}</span>
+                      <span>{project.kind}</span>
+                      <span>{project.status}</span>
+                    </div>
+                    <h3 className="display mt-3 text-2xl text-fog sm:text-3xl">{project.name}</h3>
+                  </div>
+                  <div className="flex gap-3 text-sm">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full border border-[var(--line)] px-4 py-2 transition group-hover:border-copper group-hover:text-copper"
+                    >
+                      Live
+                    </a>
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full border border-[var(--line)] px-4 py-2 transition hover:border-fog/40"
+                    >
+                      Code
+                    </a>
+                  </div>
+                </div>
+                <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted">{project.blurb}</p>
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {project.stack.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-full border border-[var(--line)] px-3 py-1 text-xs text-fog/80"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="services" className="mx-auto max-w-6xl px-6 py-20">
+          <p className="text-sm uppercase tracking-[0.24em] text-copper">Services</p>
+          <h2 className="display mt-3 text-3xl text-fog sm:text-4xl">What I take on</h2>
+          <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+            {services.map((service) => (
+              <li
+                key={service}
+                className="rounded-2xl border border-[var(--line)] bg-white/[0.02] px-5 py-4 text-fog/90"
+              >
+                {service}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-6 py-20">
+          <div className="rounded-[2rem] border border-[var(--line)] bg-gradient-to-br from-ink-2 to-ink px-8 py-12 sm:px-12">
+            <p className="text-sm uppercase tracking-[0.24em] text-copper">Next project</p>
+            <h2 className="display mt-4 max-w-2xl text-3xl text-fog sm:text-5xl">
+              Have a website, booking flow, or SaaS idea?
+            </h2>
+            <p className="mt-5 max-w-xl text-muted">
+              Tell me the goal and timeline. I’ll reply with a clear scope, stack recommendation, and
+              fixed-price range.
+            </p>
+            <a
+              href={`mailto:${profile.email}?subject=Project%20inquiry`}
+              className="mt-8 inline-flex rounded-full bg-copper px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-110"
+            >
+              Email {profile.email}
+            </a>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="relative z-10 border-t border-[var(--line)] px-6 py-8 text-sm text-muted">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
+          <span>© {new Date().getFullYear()} {profile.name}</span>
+          <div className="flex gap-5">
+            <a href={profile.github} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            <a href={`mailto:${profile.email}`}>Email</a>
+          </div>
+        </div>
       </footer>
     </div>
   );
