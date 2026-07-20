@@ -17,8 +17,8 @@
   --color-fog: var(--fog);
   --color-muted: var(--muted);
   --color-copper: var(--copper);
-  --font-sans: var(--font-manrope);
-  --font-display: var(--font-fraunces);
+  --font-sans: "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -37,7 +37,7 @@ body {
     radial-gradient(900px 420px at -10% 20%, var(--copper-soft), transparent 50%),
     linear-gradient(180deg, var(--ink) 0%, #090d13 100%);
   color: var(--fog);
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 
 a {
@@ -51,7 +51,7 @@ a {
 }
 
 .display {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: var(--font-display);
   font-optical-sizing: auto;
 }
 
