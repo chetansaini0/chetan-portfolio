@@ -43,6 +43,17 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/chetansaini0/reviewflow-ai",
     status: "Live product",
   },
+  {
+    slug: "docuextract",
+    name: "DocuExtract",
+    kind: "Product",
+    blurb:
+      "AI document extraction SaaS — upload invoices, receipts, and contracts, extract structured data with OpenAI, and export to Excel/CSV/JSON or via REST API. Supabase auth + Razorpay billing.",
+    stack: ["Next.js", "Supabase", "OpenAI", "Razorpay", "TypeScript"],
+    liveUrl: "https://docuextract-sandy.vercel.app",
+    githubUrl: "https://github.com/chetansaini0/docuextract",
+    status: "Live product",
+  },
 ];
 
 export const services = [
