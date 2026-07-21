@@ -1,7 +1,7 @@
 export type Project = {
   slug: string;
   name: string;
-  kind: "Client" | "Product";
+  kind: "Client" | "Product" | "Showcase";
   blurb: string;
   stack: string[];
   liveUrl: string;
@@ -53,6 +53,17 @@ export const projects: Project[] = [
     liveUrl: "https://docuextract-sandy.vercel.app",
     githubUrl: "https://github.com/chetansaini0/docuextract",
     status: "Live product",
+  },
+  {
+    slug: "nimbus-waitlist",
+    name: "Nimbus — AI Support Inbox",
+    kind: "Showcase",
+    blurb:
+      "Conversion-focused SaaS waitlist landing for a fictional AI support product — working email-capture API, custom Tailwind design system, animations, SEO, and accessibility. Zero heavy dependencies.",
+    stack: ["Next.js", "TypeScript", "Tailwind v4"],
+    liveUrl: "https://showcase-saas-waitlist.vercel.app",
+    githubUrl: "https://github.com/chetansaini0/showcase-saas-waitlist",
+    status: "Live demo",
   },
 ];
 
