@@ -15,7 +15,7 @@ export function WorkSection() {
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-8">
+        <div className="mt-16 grid gap-12 md:gap-16">
           {projects.map((project, index) => (
             <Reveal key={project.slug} delay={index * 0.05}>
               <article className="project-card">
@@ -25,17 +25,17 @@ export function WorkSection() {
                   </div>
                 </div>
 
-                <div className="grid gap-6 lg:grid-cols-[120px_1fr]">
+                <div className="grid gap-6 lg:grid-cols-[120px_1fr] lg:gap-10">
                   <div className="text-sm uppercase tracking-[0.22em] text-[var(--muted)]">
                     PROJECT {String(index + 1).padStart(2, "0")}
                   </div>
 
                   <div>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <h3 className="font-display text-[clamp(2rem,4vw,4rem)] leading-[0.95] tracking-[-0.05em] text-[var(--foreground)]">
+                    <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                      <h3 className="font-display text-[clamp(2rem,4vw,3.75rem)] leading-[0.95] tracking-[-0.035em] text-[var(--foreground)]">
                         {project.name}
                       </h3>
-                      <span className="rounded-full border border-[var(--border)] px-3 py-1 text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
+                      <span className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
                         {project.status}
                       </span>
                     </div>

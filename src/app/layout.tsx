@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { getSiteUrl } from "@/lib/site";
@@ -51,9 +52,11 @@ export default function RootLayout({
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeProvider>
-          <CustomCursor />
-          <JsonLd />
-          {children}
+          <SmoothScroll>
+            <CustomCursor />
+            <JsonLd />
+            {children}
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
