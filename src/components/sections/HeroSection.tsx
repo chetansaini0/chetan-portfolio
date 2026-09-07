@@ -7,7 +7,7 @@ export function HeroSection() {
   const reduced = useReducedMotion();
 
   return (
-    <section id="top" className="hero-shell px-6 pb-20 pt-28 sm:px-8 md:pb-28 md:pt-36">
+    <section id="top" className="hero-shell px-6 pb-16 pt-28 sm:px-8 md:pb-20 md:pt-32">
       <div className="hero-backdrop" aria-hidden="true">
         <div className="hero-accent-line" />
         <div className="hero-watermark font-display">

@@ -196,8 +196,8 @@ textarea {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  overflow: clip;
+  justify-content: center;
+  overflow: visible;
 }
 
 .hero-shell::before {
@@ -283,12 +283,13 @@ html[data-theme="light"] .hero-shell::before {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.18em 0.28em;
+  gap: 0.12em 0.3em;
   max-width: 100%;
-  font-size: clamp(3.25rem, 11vw, 7.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-size: clamp(3rem, 10.5vw, 7rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
   overflow: visible;
+  padding-block: 0.06em;
 }
 
 .hero-name__first {
