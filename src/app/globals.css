@@ -260,7 +260,7 @@ html[data-theme="light"] .hero-shell::before {
   font-size: clamp(2.75rem, 5.5vw, 4.75rem);
   line-height: 0.92;
   letter-spacing: -0.04em;
-  color: color-mix(in srgb, var(--foreground) 22%, transparent);
+  color: color-mix(in srgb, var(--foreground) 32%, transparent);
   pointer-events: none;
 }
 
@@ -276,7 +276,8 @@ html[data-theme="light"] .hero-shell::before {
 }
 
 .hero-eyebrow {
-  color: color-mix(in srgb, var(--accent) 70%, var(--foreground));
+  color: var(--accent);
+  opacity: 0.95;
 }
 
 .hero-name {
@@ -285,11 +286,11 @@ html[data-theme="light"] .hero-shell::before {
   align-items: baseline;
   gap: 0.12em 0.3em;
   max-width: 100%;
-  font-size: clamp(3rem, 10.5vw, 7rem);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  font-size: clamp(2.85rem, 9.5vw, 6.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
   overflow: visible;
-  padding-block: 0.06em;
+  padding-block: 0.12em;
 }
 
 .hero-name__first {
