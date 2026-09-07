@@ -41,7 +41,9 @@ export function WorkSection() {
                     </div>
 
                     <p className="mt-3 text-sm uppercase tracking-[0.18em] text-[var(--muted)]">{project.category}</p>
-                    <p className="mt-6 max-w-2xl text-base leading-7 text-[var(--muted)]">{project.description}</p>
+                    <p className="mt-6 max-w-2xl text-base leading-7 text-[color-mix(in_srgb,var(--muted)_75%,var(--foreground))] sm:text-[1.05rem] sm:leading-8">
+                      {project.description}
+                    </p>
 
                     <div className="mt-6 flex flex-wrap gap-2">
                       {project.stack.map((item) => (
